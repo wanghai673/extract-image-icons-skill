@@ -2,7 +2,9 @@
 
 [![English](https://img.shields.io/badge/docs-English-blue)](README_en.md) [![CI](https://github.com/wanghai673/extract-image-icons-skill/actions/workflows/ci.yml/badge.svg)](https://github.com/wanghai673/extract-image-icons-skill/actions/workflows/ci.yml) [![GitHub stars](https://img.shields.io/github/stars/wanghai673/extract-image-icons-skill?style=flat&logo=github&label=stars)](https://github.com/wanghai673/extract-image-icons-skill/stargazers) [![GitHub forks](https://img.shields.io/github/forks/wanghai673/extract-image-icons-skill?style=flat&logo=github&label=forks)](https://github.com/wanghai673/extract-image-icons-skill/forks)
 
-一个用于从截图、幻灯片、海报、流程图、仪表盘和其他合成图片中提取可复用视觉元素的 Codex Skill。它会先盘点并去重图标，再通过源图引导的 `gpt-image-2` 编辑生成稀疏资产表，最后确定性地去除纯色背景、拆分并导出带语义文件名的透明 PNG。
+![图片图标提取 Skill 项目概览](assets/extract-image-icons-overview.png)
+
+一个用于从截图、幻灯片、海报、流程图、仪表盘和其他合成图片中提取可复用视觉元素的 Skill。它会先盘点并去重图标，再通过源图引导的 `gpt-image-2` 编辑生成稀疏资产表，最后确定性地去除纯色背景、拆分并导出带语义文件名的透明 PNG。
 
 它适合提取图标、徽章、Logo、吉祥物、贴纸、人物插画和其他独立视觉对象，让散落在一张大图中的素材变成可以单独移动、排版和复用的透明图片资产。
 

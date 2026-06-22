@@ -2,7 +2,9 @@
 
 [![中文](https://img.shields.io/badge/docs-中文-red)](README.md) [![CI](https://github.com/wanghai673/extract-image-icons-skill/actions/workflows/ci.yml/badge.svg)](https://github.com/wanghai673/extract-image-icons-skill/actions/workflows/ci.yml) [![GitHub stars](https://img.shields.io/github/stars/wanghai673/extract-image-icons-skill?style=flat&logo=github&label=stars)](https://github.com/wanghai673/extract-image-icons-skill/stargazers)
 
-A Codex Skill for extracting reusable visual elements from screenshots, slides, posters, diagrams, and other composite images. It inventories and deduplicates icons, uses source-guided `gpt-image-2` editing to create sparse asset sheets, then deterministically removes the key color and exports semantically named transparent PNG files.
+![Extract Image Icons Skill overview](assets/extract-image-icons-overview.png)
+
+A Skill for extracting reusable visual elements from screenshots, slides, posters, diagrams, and other composite images. It inventories and deduplicates icons, uses source-guided `gpt-image-2` editing to create sparse asset sheets, then deterministically removes the key color and exports semantically named transparent PNG files.
 
 It handles icons, pictograms, badges, logos, mascots, stickers, characters, and illustrations. It excludes editable text, ordinary arrows, connectors, borders, panels, and other simple layout primitives.
 
