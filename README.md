@@ -23,10 +23,6 @@
 
 ## 提取效果示例
 
-下面是使用本仓库 Skill 实际运行得到的结果。右侧图片直接来自运行目录中的 `intermediates/*_alpha.png`，背景已转换为透明通道。
-
-### 示例一：从数据源流程图中提取图标
-
 <table>
   <tr>
     <th>原图</th>
@@ -37,10 +33,6 @@
     <td><img src="assets/showcase-result-reconstruction-pipeline-alpha.png" alt="从数据源流程图提取的透明图标资产表" width="420"></td>
   </tr>
 </table>
-
-原图中的卫星、飞机和城市建筑被识别为 3 个唯一视觉资产；文字、卡片、连接线和引擎面板没有作为图标导出。
-
-### 示例二：从 Virtual Newsroom 流程图中提取角色与工具
 
 <table>
   <tr>
@@ -54,21 +46,6 @@
     <td><img src="assets/showcase-result-virtual-newsroom-tools-alpha.png" alt="从 Virtual Newsroom 流程图提取的透明工具资产表" width="320"></td>
   </tr>
 </table>
-
-角色和工具被拆成两张稀疏资产表，随后可继续切分为独立、带语义名称的透明 PNG。流程中的文字、公式、箭头和数据方块被排除。
-
-> [!NOTE]
-> 这些示例同时展示了生成式分离的真实边界：图标被清晰放大并获得透明背景，但部分低分辨率素材与原图存在可见重绘差异，因此不能视为严格像素复刻。
-
-每个独立视觉对象最终会导出为一张带语义名称的透明 PNG，并附带可追溯的任务记录：
-
-| 阶段 | 产物 | 用途 |
-| --- | --- | --- |
-| 盘点 | `icon_inventory.json` | 记录唯一图标、重复次数、组合边界和忠实度要求 |
-| 规划 | `batch_plan.json`、`image-jobs.jsonl` | 把图标分成每批不超过 9 个的资产表任务 |
-| 生成 | `generated/` | 保存源图引导的纯色背景资产表 |
-| 拆分 | `intermediates/`、`raw/`、`manifests/` | 透明化、组件发现和命名映射 |
-| 交付 | `icons/`、`icons_validation.json` | 最终透明 PNG 与结构验证报告 |
 
 ## 特点
 
