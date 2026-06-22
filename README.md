@@ -12,6 +12,8 @@
 > 提取过程会读取源图、创建任务目录、调用图片生成/编辑接口，并写入多张中间资产表和最终 PNG。“请求批准”模式可能频繁打断批量生成和本地处理。
 >
 > 图片后端默认优先读取 `~/.codex/auth.json` 中的 Codex OAuth；不可用时可使用 `OPENAI_API_KEY`、可选的 `OPENAI_BASE_URL` 和 Python `openai` 包。不要把 API Key 写入项目、Skill 或提取结果目录。
+>
+> ![Codex 完全访问权限设置示意](assets/codex-full-access-permission.png)
 
 > [!WARNING]
 > 本 Skill 使用生成式图片编辑完成源图引导的图标分离，不是传统意义上的无损裁切工具。
