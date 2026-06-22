@@ -21,9 +21,46 @@
 > [!TIP]
 > 本 Skill 不负责 OCR 文字提取，也不把普通箭头、连接线、卡片边框、色块和其他简单布局元素当作图标。如果只需要裁出一个边界清晰、背景简单的单独物体，普通抠图工具通常更轻量。
 
-## 提取结果
+## 提取效果示例
 
-每个独立视觉对象会导出为一张带语义名称的透明 PNG，并附带可追溯的任务记录：
+下面是使用本仓库 Skill 实际运行得到的结果。右侧图片直接来自运行目录中的 `intermediates/*_alpha.png`，背景已转换为透明通道。
+
+### 示例一：从数据源流程图中提取图标
+
+<table>
+  <tr>
+    <th>原图</th>
+    <th>透明资产表</th>
+  </tr>
+  <tr>
+    <td><img src="assets/showcase-source-reconstruction-pipeline.png" alt="包含卫星、飞机和城市图标的数据源流程图原图" width="520"></td>
+    <td><img src="assets/showcase-result-reconstruction-pipeline-alpha.png" alt="从数据源流程图提取的透明图标资产表" width="420"></td>
+  </tr>
+</table>
+
+原图中的卫星、飞机和城市建筑被识别为 3 个唯一视觉资产；文字、卡片、连接线和引擎面板没有作为图标导出。
+
+### 示例二：从 Virtual Newsroom 流程图中提取角色与工具
+
+<table>
+  <tr>
+    <th>原图</th>
+    <th>透明资产表（角色）</th>
+    <th>透明资产表（工具）</th>
+  </tr>
+  <tr>
+    <td><img src="assets/showcase-source-virtual-newsroom.png" alt="Virtual Newsroom 多角色流程图原图" width="420"></td>
+    <td><img src="assets/showcase-result-virtual-newsroom-roles-alpha.png" alt="从 Virtual Newsroom 流程图提取的透明角色资产表" width="320"></td>
+    <td><img src="assets/showcase-result-virtual-newsroom-tools-alpha.png" alt="从 Virtual Newsroom 流程图提取的透明工具资产表" width="320"></td>
+  </tr>
+</table>
+
+角色和工具被拆成两张稀疏资产表，随后可继续切分为独立、带语义名称的透明 PNG。流程中的文字、公式、箭头和数据方块被排除。
+
+> [!NOTE]
+> 这些示例同时展示了生成式分离的真实边界：图标被清晰放大并获得透明背景，但部分低分辨率素材与原图存在可见重绘差异，因此不能视为严格像素复刻。
+
+每个独立视觉对象最终会导出为一张带语义名称的透明 PNG，并附带可追溯的任务记录：
 
 | 阶段 | 产物 | 用途 |
 | --- | --- | --- |
@@ -175,6 +212,7 @@ run-dir/
 ```text
 .
 ├── .github/                              # GitHub 工作流和 PR 模板
+├── assets/                               # README 的真实提取效果示例
 ├── skills/
 │   └── extract-image-icons/              # 可安装的 Skill 包
 │       ├── SKILL.md                      # Skill 入口与完整工作流
