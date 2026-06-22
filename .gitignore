@@ -1,0 +1,48 @@
+# Python
+__pycache__/
+*.py[cod]
+*.so
+.Python
+build/
+dist/
+*.egg-info/
+
+# Virtual environments
+.venv/
+venv/
+env/
+ENV/
+
+# IDE and OS files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+Thumbs.db
+Desktop.ini
+
+# Local secrets and logs
+.env
+*.log
+
+# Generated extraction runs
+output/
+test_output/
+temp/
+generated/
+intermediates/
+raw/
+icons/
+manifests/
+icon_inventory.json
+batch_plan.json
+image-jobs.jsonl
+icons_validation.json
+
+# Tool caches
+.pytest_cache/
+.mypy_cache/
+.coverage
+htmlcov/

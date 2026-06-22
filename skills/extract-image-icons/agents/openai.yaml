@@ -1,0 +1,4 @@
+interface:
+  display_name: "Extract Image Icons"
+  short_description: "Extract faithful transparent icons with conservative clarification"
+  default_prompt: "Use $extract-image-icons to extract the unique icons from this image as transparent PNG files, preserve their original appearance, and conservatively clarify only source-supported blurry areas."

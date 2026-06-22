@@ -1,0 +1,37 @@
+name: CI
+
+on:
+  push:
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Install runtime dependencies
+        run: python -m pip install --upgrade pillow openai pyyaml
+      - name: Compile Python scripts
+        run: python -m compileall -q skills/extract-image-icons/scripts
+      - name: Validate skill metadata
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          import yaml
+
+          path = Path("skills/extract-image-icons/SKILL.md")
+          text = path.read_text(encoding="utf-8")
+          assert text.startswith("---\n"), "SKILL.md must start with YAML frontmatter"
+          _, frontmatter, _ = text.split("---", 2)
+          metadata = yaml.safe_load(frontmatter)
+          assert metadata["name"] == "extract-image-icons"
+          assert isinstance(metadata.get("description"), str) and metadata["description"].strip()
+          PY
+      - name: Run local processor self-test
+        run: python skills/extract-image-icons/scripts/process_icon_sheet.py --self-test
